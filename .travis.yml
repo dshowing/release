@@ -1,3 +1,15 @@
 language: python
+python:
+  - "3"
+services:
+  - docker
 
-python: 
+sudo: required
+
+deploy:
+  provider: script
+  script: ./rpm/docker-build.sh
+  skip_cleanup: true
+  on:
+    branch: source
+
